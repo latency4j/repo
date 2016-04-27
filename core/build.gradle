@@ -1,10 +1,22 @@
 apply plugin: 'java'
 
+group=projectGroup
+version=projectVersion
+sourceCompatibility=projectSourceCompatibility
+
 repositories {
 	mavenCentral()
 }
 
 configurations {
+    compile {
+        description = 'compile classpath'
+        transitive = true
+    }
+    runtime {
+        extendsFrom compile
+    }
+    
     provided
 }
 
@@ -14,11 +26,10 @@ sourceSets {
 
 dependencies {
 	compile group: 'javax', name: 'javaee-api', version: '7.0'
-	compile group: 'org.springframework', name: 'spring-context', version: '4.2.5.RELEASE'
-	
-	runtime group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
-	runtime group: 'cglib', name: 'cglib-nodep', version: '3.2.2'
-	runtime group: 'org.aspectj', name: 'aspectjrt', version: '1.8.9'
+	compile group: 'org.springframework', name: 'spring-context', version: '4.2.5.RELEASE'	
+	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
+	compile group: 'org.aspectj', name: 'aspectjrt', version: '1.8.9'
+	compile group: 'cglib', name: 'cglib-nodep', version: '3.2.2'
 	runtime group: 'org.aspectj', name: 'aspectjweaver', version: '1.8.9'
 
 	testCompile group: 'org.springframework', name: 'spring-test', version: '4.2.5.RELEASE'
@@ -29,6 +40,8 @@ dependencies {
 	testRuntime group: 'org.springframework', name: 'spring-core', version: '4.2.5.RELEASE'
 }
 
-group=projectGroup
-version=projectVersion
-sourceCompatibility=projectSourceCompatibility
+task zip2(dependsOn: 'compileJava', type: Zip) {
+    from configurations.compile.allArtifacts.files
+    from configurations.compile
+    archiveName project.name + "-all-"+ project.version + ".zip"
+}
