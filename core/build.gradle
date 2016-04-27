@@ -11,7 +11,7 @@ repositories {
 configurations {
     compile {
         description = 'compile classpath'
-        transitive = true
+        transitive = false
     }
     runtime {
         extendsFrom compile
@@ -30,6 +30,7 @@ dependencies {
 	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
 	compile group: 'org.aspectj', name: 'aspectjrt', version: '1.8.9'
 	compile group: 'cglib', name: 'cglib-nodep', version: '3.2.2'
+	
 	runtime group: 'org.aspectj', name: 'aspectjweaver', version: '1.8.9'
 
 	testCompile group: 'org.springframework', name: 'spring-test', version: '4.2.5.RELEASE'
@@ -40,8 +41,14 @@ dependencies {
 	testRuntime group: 'org.springframework', name: 'spring-core', version: '4.2.5.RELEASE'
 }
 
-task zip2(dependsOn: 'compileJava', type: Zip) {
-    from configurations.compile.allArtifacts.files
-    from configurations.compile
-    archiveName project.name + "-all-"+ project.version + ".zip"
+task zip(type: Zip) {
+	from jar.outputs.files
+	into ('src') {
+    	from ('/src') {
+    	include '*/**'
+    	}
+    }
+    into('libs') {
+        from configurations.testRuntime
+    }
 }
