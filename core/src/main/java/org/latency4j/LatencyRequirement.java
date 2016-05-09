@@ -8,7 +8,7 @@ import org.latency4j.persistence.DefaultWorkDurationPersistenceManager;
 import org.latency4j.persistence.WorkDurationPersistenceManager;
 
 /**
- * </p>
+ * <p>
  * Abstract representation of a latency requirement. Please note that instances
  * of this class must be {@link #init() initialised} before use.
  * </p>
@@ -72,7 +72,6 @@ public abstract class LatencyRequirement {
 	 * <p>
 	 * Initialises the instance. This involves performing the following actions:
 	 * </p>
-	 * <p>
 	 * <ul>
 	 * <li>{@link #assertCompulsoryFieldsSpecified() Verify that all fields have
 	 * been assigned valid values}.</li>
@@ -83,7 +82,6 @@ public abstract class LatencyRequirement {
 	 * temporary folder as identified by the java property
 	 * {@link Latency4JConstants#JAVA_TMP_FILE_FOLDER}.</li>
 	 * </ul>
-	 * </p>
 	 */
 	public void init() {
 		assertCompulsoryFieldsSpecified();

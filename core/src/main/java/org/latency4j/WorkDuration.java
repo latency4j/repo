@@ -257,7 +257,7 @@ public class WorkDuration implements Serializable {
 	 * monitored ended prematurely with an {@link Throwable exception}.
 	 * </p>
 	 * 
-	 * @return <code>True<code> If an exception occurred within the 
+	 * @return <code>True</code> If an exception occurred within the 
 	 * monitored block of the {@link #getMethodName() method},
 	 * and <code>False</code> otherwise.
 	 * 

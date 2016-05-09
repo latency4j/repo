@@ -47,8 +47,7 @@ public class MissedTargetAlertLogger extends AbstractAlertHandler {
 
 	/**
 	 * <p>
-	 * The key (
-	 * <q><code>{@value #LOG_LEVEL_CONFIG_PARAM_KEY}</q></code>) of the
+	 * The key ({@value #LOG_LEVEL_CONFIG_PARAM_KEY}) of the
 	 * parameter which specifies the {@link MissedTargetLogLevel log-level} with
 	 * which an instance logs alerts.
 	 * </p>
@@ -56,19 +55,14 @@ public class MissedTargetAlertLogger extends AbstractAlertHandler {
 	public static final String LOG_LEVEL_CONFIG_PARAM_KEY = "logLevel";
 
 	/**
-	 * <p>
-	 * The key (
-	 * <q><code>{@value #LOG_CATEGORY_CONFIG_PARAM_KEY}</code></q>) of the
-	 * parameter which specifies the logger category to which an instance logs
-	 * alerts.
-	 * </p>
+	 * <p>The key ({@value #LOG_CATEGORY_CONFIG_PARAM_KEY}) 
+	 * of the parameter which specifies the logger category to which an instance logs
+	 * alerts.</p>
 	 */
 	public static final String LOG_CATEGORY_CONFIG_PARAM_KEY = "logger.category";
 
 	/**
-	 * <p>
-	 * Internal logger which is used for logging alerts.
-	 * </p>
+	 * <p>Internal logger which is used for logging alerts.</p>
 	 */
 	private Logger logger;
 

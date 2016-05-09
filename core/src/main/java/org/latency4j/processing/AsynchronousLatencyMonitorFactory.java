@@ -140,9 +140,7 @@ public class AsynchronousLatencyMonitorFactory implements MonitorFactory {
 	 * @return The path from which this factory is {@link Latency4JConfiguration
 	 *         configured}.
 	 */
-	public String getConfigurationPath() {
-		return this.configurationPath;
-	}
+	public String getConfigurationPath() { return this.configurationPath;}
 
 	/**
 	 * <p>

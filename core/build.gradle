@@ -1,3 +1,11 @@
+plugins {
+  id 'org.ajoberstar.grgit' version '1.4.2'
+  id 'org.ajoberstar.github-pages' version '1.4.2'
+
+  //id 'org.ajoberstar.release-opinion' version '1.4.2'
+  //id 'org.ajoberstar.release-base' version '1.4.2'
+}
+
 apply plugin: 'java'
 
 group=projectGroup
@@ -22,6 +30,18 @@ configurations {
 
 sourceSets {
     main { compileClasspath += configurations.provided }
+}
+
+javadoc {
+    options.tags = [ "<q>" ] 
+    options.addStringOption('Xdoclint:none', '-quiet')
+}
+
+githubPages {
+  repoUri = 'https://github.com/latency4j/repo'
+  pages {
+    from javadoc
+  }
 }
 
 dependencies {

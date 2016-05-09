@@ -67,8 +67,7 @@ public class MissedTargetAlertMailer extends AbstractAlertHandler {
 
 	/**
 	 * <p>
-	 * The key (
-	 * <q><code>{@value #MAIL_TO_ADDR_PARAM_KEY}</code></q>) for the parameter
+	 * The key ({@value #MAIL_TO_ADDR_PARAM_KEY}) for the parameter
 	 * which specifies the addresses to which the alerts will be sent. These are
 	 * the addresses that go into the 'To:' address field of the email.
 	 * </p>
@@ -77,8 +76,7 @@ public class MissedTargetAlertMailer extends AbstractAlertHandler {
 
 	/**
 	 * <p>
-	 * The key (
-	 * <q><code>{@value #MAIL_CC_ADDR_PARAM_KEY}</code></q>) for the parameter
+	 * The key ({@value #MAIL_CC_ADDR_PARAM_KEY}) for the parameter
 	 * which specifies the addresses to which the alerts will be copied. These
 	 * are the addresses that go into the 'Cc:' address field of the email.
 	 * </p>
@@ -87,8 +85,7 @@ public class MissedTargetAlertMailer extends AbstractAlertHandler {
 
 	/**
 	 * <p>
-	 * The key (
-	 * <q><code>{@value #MAIL_BCC_ADDR_PARAM_KEY}</code></q>) for the parameter
+	 * The key ({@value #MAIL_BCC_ADDR_PARAM_KEY}) for the parameter
 	 * which specifies the addresses to which the alerts will be blind copied.
 	 * These are the addresses that go into the 'Bcc:' address field of the
 	 * email.
@@ -98,8 +95,7 @@ public class MissedTargetAlertMailer extends AbstractAlertHandler {
 
 	/**
 	 * <p>
-	 * The key
-	 * <q><code>{@value #MAIL_SUBJECT_PARAM_KEY}</code></q> for the parameter
+	 * The key {@value #MAIL_SUBJECT_PARAM_KEY} for the parameter
 	 * which specifies the subject line of alert emails.
 	 * </p>
 	 */

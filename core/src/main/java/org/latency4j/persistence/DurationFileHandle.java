@@ -16,7 +16,7 @@ public class DurationFileHandle {
 	/**
 	 * <p>
 	 * Extension
-	 * <q>{@value #HISTORICAL_DATA_FILE_EXTENSION}</q> for {@link WorkDuration
+	 * {@value #HISTORICAL_DATA_FILE_EXTENSION} for {@link WorkDuration
 	 * duration} files.
 	 * </p>
 	 */
@@ -87,8 +87,7 @@ public class DurationFileHandle {
 	 * {@link LatencyRequirement#getWorkCategory() category} is to be saved. The
 	 * file is generally a concatenation of the
 	 * {@link LatencyRequirement#getWorkCategory() category} and the Latency4J
-	 * file extension
-	 * <q>{@value #HISTORICAL_DATA_FILE_EXTENSION}</q>.
+	 * file extension {@value #HISTORICAL_DATA_FILE_EXTENSION}.
 	 * </p>
 	 * 
 	 * @param category
@@ -111,14 +110,14 @@ public class DurationFileHandle {
 	 * <p>
 	 * Processes all text cells/fields to be written to file, so as to ensure
 	 * that any occurrences of the reserved field delimited
-	 * <q>{@value #DATA_DELIMETER}</q> are escaped.
+	 * {@value #DATA_DELIMETER} are escaped.
 	 * </p>
 	 * 
 	 * @param arg
 	 *            The string in which occurrences of the delimiter are to be
 	 *            escaped.
 	 * @return The parameter string, but with all occurrences of the delimiter
-	 *         <q>{@value #DATA_DELIMETER}</q> escaped.
+	 *         {@value #DATA_DELIMETER} escaped.
 	 */
 	private String escapeDilimiter(final String arg) {
 		return arg.replaceAll(DATA_DELIMETER, "\\" + DATA_DELIMETER);
@@ -128,12 +127,10 @@ public class DurationFileHandle {
 	 * <p>
 	 * Indicates if the specified file has exceeded the maximum permissible size
 	 * as determined from the {@link #setParameters(Map) configuration
-	 * parameter}
-	 * <q>{@value #MAX_HISTORICAL_DATA_FILESIZE_CONFIG_PARAM}</q>.
+	 * parameter {@value #MAX_HISTORICAL_DATA_FILESIZE_CONFIG_PARAM}.
 	 * </p>
 	 * 
-	 * @param dataFile
-	 *            The file whose size is to be examined.
+	 * @param dataFile The file whose size is to be examined.
 	 * 
 	 * @return <code>True</code> if the file has exceeded the maximum specified
 	 *         size, and <code>false</code> otherwise.

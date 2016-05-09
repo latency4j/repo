@@ -93,11 +93,9 @@ public class ConfigurationReader {
 	 * alert handlers}.
 	 * </p>
 	 * 
-	 * <p>
-	 * <b>Note</b> that for a classpath resource, the URI should be prefixed
+	 * <p><b>Note</b> that for a classpath resource, the URI should be prefixed
 	 * with
-	 * <q>CLASSPATH:</q>.
-	 * </p>
+	 * <q>CLASSPATH:</q>.</p>
 	 * 
 	 * @param resourceManager
 	 *            The {@link Latency4JResourceManager resource manager} into which

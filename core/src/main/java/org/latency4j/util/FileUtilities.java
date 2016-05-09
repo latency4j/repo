@@ -18,7 +18,14 @@ import org.latency4j.Latency4JException;
  * @see StreamReadWriteUtilities
  */
 public final class FileUtilities {
-	private static final String TMP_FOLDER_PROPERTY = "java.io.tmpdir";
+	
+	/**
+	 * <p>
+	 * Key to java system property which points to the location of the
+	 * system temp folder. The value of this property is {@value #TMP_FOLDER_PROPERTY}.
+	 * </p>
+	 */
+	public static final String TMP_FOLDER_PROPERTY = "java.io.tmpdir";
 
 	private FileUtilities() {}
 

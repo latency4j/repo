@@ -29,6 +29,7 @@ import org.latency4j.WorkDuration;
  * <p>
  * Instances of this handler require the following {@link #setParameters(Map)
  * parameters}:
+ * </p>
  * <ul>
  * <li>{@link StandardHandlerConstants#CAP_EXCEEDED_MSG_PARAM_KEY}: The template
  * for messages issued to indicate that a {@link WorkDuration duration} has
@@ -55,11 +56,10 @@ import org.latency4j.WorkDuration;
  * this parameter is not specified, the default
  * {@link StandardHandlerConstants#DEFAULT_TOLERANCE_EXCEEDED_MESSAGE} is used.
  * See
- * {@link #prepareDeviationExceededToleranceMsg(StatisticalLatencyRequirement, WorkDuration, double, double)}
- * . <br>
+ * {@link #prepareDeviationExceededToleranceMsg(StatisticalLatencyRequirement, WorkDuration, double, double)}. 
+ * <br>
  * </li>
  * </ul>
- * </p>
  */
 public abstract class AbstractAlertHandler implements AlertHandler {
 
@@ -73,10 +73,8 @@ public abstract class AbstractAlertHandler implements AlertHandler {
 	protected Map<String, String> parameters;
 
 	/**
-	 * <p>
-	 * The identifier/name of the handler. Ensuring unique names/identifiers for
-	 * {@link AlertHandler handlers} is strongly encouraged.
-	 * </p>
+	 * <p>The identifier/name of the handler. Ensuring unique names/identifiers for
+	 * {@link AlertHandler handlers} is strongly encouraged.</p>
 	 * 
 	 * @see AlertHandler#getAlertHandlerId()
 	 */

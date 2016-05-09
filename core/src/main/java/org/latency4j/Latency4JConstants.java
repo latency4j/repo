@@ -32,7 +32,7 @@ public interface Latency4JConstants {
 	 * <p>
 	 * The assumed name of the epsilon configuration file. This is the value
 	 * used if the property {@link #CONFIG_FILE_VM_PROP} is not specified. The
-	 * value of this constant is {@value #DEFAULT_CONFIGURATION_RESOURCE_NAME}>.
+	 * value of this constant is {@value #DEFAULT_CONFIGURATION_RESOURCE_NAME}.
 	 * </p>
 	 */
 	String DEFAULT_CONFIGURATION_RESOURCE_NAME = ClasspathResourceUtils.CLASSPATH_RESOURCE_PREFIX + "/latency4j.xml";
