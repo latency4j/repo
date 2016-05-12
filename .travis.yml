@@ -1,0 +1,6 @@
+before_script: cd core
+
+language: java
+jdk: 
+    - oraclejdk7
+    - oraclejdk8
