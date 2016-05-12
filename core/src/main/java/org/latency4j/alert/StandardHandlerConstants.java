@@ -100,7 +100,7 @@ public interface StandardHandlerConstants {
 	 * </p>
 	 */
 	String DEFAULT_MESSAGE_FOR_MISSED_TARGET = THREAD_ID_TOKEN + ": WorkCategory  '" + WORK_CATEGORY_TOKEN
-			+ "' exceeded specified latency " + EXPECTED_LATENCY_TOKEN + ", actual duration " + DURATION_TOKEN + ".";
+			+ "' exceeded the specified latency of " + EXPECTED_LATENCY_TOKEN + "ms, actual duration " + DURATION_TOKEN + ".";
 
 	/**
 	 * <p>

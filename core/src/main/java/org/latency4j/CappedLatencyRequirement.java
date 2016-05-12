@@ -82,7 +82,7 @@ public class CappedLatencyRequirement extends LatencyRequirement {
 	 * 
 	 * @see #getExpectedLatency()
 	 */
-	public void setExpectedLatency(Long expectedLatency) {
+	public void setExpectedLatency(final Long expectedLatency) {
 		validateExpectedLatency(expectedLatency);
 		this.expectedLatency = Math.abs(expectedLatency);
 	}
@@ -99,14 +99,13 @@ public class CappedLatencyRequirement extends LatencyRequirement {
 	 * zero and is non-null.
 	 * </p>
 	 * 
-	 * @param expectedLatency
-	 *            The candidate {@link #expectedLatency value} to validate.
+	 * @param expectedLatency The candidate {@link #expectedLatency value} to validate.
 	 * 
 	 * @throws Latency4JException
 	 *             If the specified value is less than or equal to zero or is
 	 *             invalid.
 	 */
-	private void validateExpectedLatency(Long expectedLatency) {
+	private void validateExpectedLatency(final Long expectedLatency) {
 		if (expectedLatency == null || expectedLatency <= 0)
 			throw new Latency4JException("Expected latency must be greater than 0.");
 	}

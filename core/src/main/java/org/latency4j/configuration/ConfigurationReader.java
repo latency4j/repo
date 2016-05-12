@@ -78,8 +78,8 @@ public class ConfigurationReader {
 			loadLatencyRequirements(configuration, resourceManager);
 		} catch (Throwable loadException) {
 			if (logger.isDebugEnabled())
-				logger.debug("Unexpected Exception caught unmarshalling epsilon configuration from stream.");
-			logger.error("Error unmarshalling epsilon configuration.");
+				logger.debug("Unexpected Exception caught unmarshalling latency4j configuration from stream.", loadException);
+			logger.error("Error unmarshalling latency4j configuration.");
 			throw Latency4JException.wrapException(loadException);
 		}
 	}
@@ -181,7 +181,7 @@ public class ConfigurationReader {
 	 *            configuration(s)} for the {@link AlertHandler alert
 	 *            handler(s)} to load.
 	 *
-	 * @param epsilonResourceManager
+	 * @param latency4jResourceManager
 	 *            The resource manager into which the {@link AlertHandler
 	 *            alert handler} instances will be loaded.
 	 * 
@@ -190,7 +190,7 @@ public class ConfigurationReader {
 	 *             {@link Latency4JConfiguration configuration}.
 	 */
 	private static void loadAlertHandlers(final Latency4JConfiguration configuration,
-			final Latency4JResourceManager epsilonResourceManager) {
+			final Latency4JResourceManager latency4jResourceManager) {
 		if (configuration.getAlertHandlersConfiguration() != null) {
 			List<AlertHandlerConfiguration> alertHandlerConfiguraionList = configuration.getAlertHandlersConfiguration()
 					.getAlertHandlers();
@@ -199,7 +199,7 @@ public class ConfigurationReader {
 			AlertHandler alertHandler;
 			for (AlertHandlerConfiguration alertHandlerConfiguration : alertHandlerConfiguraionList) {
 				alertHandler = createAlertHandler(alertHandlerConfiguration);
-				epsilonResourceManager.registerHandler(alertHandler);
+				latency4jResourceManager.registerHandler(alertHandler);
 			}
 		} else if (logger.isDebugEnabled()) {
 			logger.debug("No alert-handlers specified.");
@@ -218,29 +218,29 @@ public class ConfigurationReader {
 	 *            the {@link LatencyRequirement latency requirements} are to be
 	 *            loaded.
 	 * 
-	 * @param epsilonResourceManager
+	 * @param latency4jResourceManager
 	 *            The {@link Latency4JResourceManager resource manager} which
 	 *            holds the {@link LatencyRequirementGroupConfig requirement
 	 *            configuration elements}.
 	 */
 	private static void loadLatencyRequirements(final Latency4JConfiguration configuration,
-			final Latency4JResourceManager epsilonResourceManager) throws Exception {
+			final Latency4JResourceManager latency4jResourceManager) throws Exception {
 		LatencyRequirementGroupConfig latencyRequirementGroupConfig = configuration
 				.getLatencyRequirementsConfiguration();
 		if (configuration.getLatencyRequirementsConfiguration() != null) {
 			if (logger.isDebugEnabled()) logger.debug("Loading capped requirements.");
 
-			loadRequirements(latencyRequirementGroupConfig.getCappedRequirements(), epsilonResourceManager);
+			loadRequirements(latencyRequirementGroupConfig.getCappedRequirements(), latency4jResourceManager);
 
 			if (logger.isDebugEnabled()) logger.debug("Loading stats requirements.");
 
-			loadRequirements(latencyRequirementGroupConfig.getStatisticalRequirements(), epsilonResourceManager);
+			loadRequirements(latencyRequirementGroupConfig.getStatisticalRequirements(), latency4jResourceManager);
 
 		} else if (logger.isDebugEnabled()) logger.debug("No latency requirements specified.");
 	}
 
 	private static void loadRequirements(final List<? extends LatencyRequirementConfiguration> latencyRequirements,
-			final Latency4JResourceManager epsilonResourceManager) throws Exception {
+			final Latency4JResourceManager latency4jResourceManager) throws Exception {
 		if (latencyRequirements != null) {
 			if (logger.isDebugEnabled()) logger.debug(latencyRequirements.size() + " requirements defined.");
 
@@ -251,14 +251,14 @@ public class ConfigurationReader {
 
 				if (latencyRequirementConfiguration.getAlertHandlerIds() != null) {
 					for (String handlerName : latencyRequirementConfiguration.getAlertHandlerIds()) {
-						alertHandler = epsilonResourceManager.getAlertHandler(handlerName);
+						alertHandler = latency4jResourceManager.getAlertHandler(handlerName);
 						if (alertHandler == null)
 							throw new Latency4JException("Unable to find handler with id " + handlerName);
 						latencyRequirement.getAlertHandlers().add(alertHandler);
 					}
 				}
 
-				epsilonResourceManager.registerLatencyRequirement(latencyRequirement);
+				latency4jResourceManager.registerLatencyRequirement(latencyRequirement);
 			}
 		} else if (logger.isDebugEnabled()) logger.debug("No matching requirements specified.");
 	}

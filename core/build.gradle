@@ -46,17 +46,18 @@ githubPages {
 
 dependencies {
 	compile group: 'javax', name: 'javaee-api', version: '7.0'
-	compile group: 'org.springframework', name: 'spring-context', version: '4.2.5.RELEASE'	
 	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
 	compile group: 'org.aspectj', name: 'aspectjrt', version: '1.8.9'
-	compile group: 'cglib', name: 'cglib-nodep', version: '3.2.2'
-	
+	compile group: 'cglib', name: 'cglib-nodep', version: '3.2.2'	
+	compile group: 'org.springframework', name: 'spring-context', version: '4.2.5.RELEASE'	
+	compile group: 'org.springframework', name: 'spring-beans', version: '4.2.5.RELEASE'
+
+
 	runtime group: 'org.aspectj', name: 'aspectjweaver', version: '1.8.9'
 
 	testCompile group: 'org.springframework', name: 'spring-test', version: '4.2.5.RELEASE'
 	testCompile group: 'junit', name: 'junit', version: '4.11'
 
-	testRuntime group: 'org.springframework', name: 'spring-beans', version: '4.2.5.RELEASE'
 	testRuntime group: 'org.springframework', name: 'spring-context-support', version: '4.2.5.RELEASE'
 	testRuntime group: 'org.springframework', name: 'spring-core', version: '4.2.5.RELEASE'
 }
