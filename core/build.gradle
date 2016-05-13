@@ -51,6 +51,7 @@ dependencies {
 	compile group: 'cglib', name: 'cglib-nodep', version: '3.2.2'	
 	compile group: 'org.springframework', name: 'spring-context', version: '4.2.5.RELEASE'	
 	compile group: 'org.springframework', name: 'spring-beans', version: '4.2.5.RELEASE'
+	compile group: 'org.springframework', name: 'spring-core', version: '4.2.5.RELEASE'
 
 
 	runtime group: 'org.aspectj', name: 'aspectjweaver', version: '1.8.9'
@@ -59,7 +60,6 @@ dependencies {
 	testCompile group: 'junit', name: 'junit', version: '4.11'
 
 	testRuntime group: 'org.springframework', name: 'spring-context-support', version: '4.2.5.RELEASE'
-	testRuntime group: 'org.springframework', name: 'spring-core', version: '4.2.5.RELEASE'
 }
 
 task zip(type: Zip) {
