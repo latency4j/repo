@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:aop="http://www.springframework.org/schema/aop"
+      xsi:schemaLocation="
+      	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+		
+	<bean 	id="monitorFactory"
+			class="org.latency4j.processing.AsynchronousLatencyMonitorFactory"
+			scope="singleton"
+			init-method="init"/>
+	
+	
+	<bean 	id="monitoringInterceptor" class="org.latency4j.spring.Latency4JInterceptor" 
+			scope="singleton">
+		<property name="monitorFactory" ref="monitorFactory"/>
+		<property name="workCategory" value="HelloWorld"/>
+	</bean>
+	
+	<bean 	id="helloWorldService" class="latency4jexamples.aop.helloworld.HelloWorldService" 
+			scope="singleton"/>
+		
+		
+	<aop:config>
+		<aop:aspect ref="monitoringInterceptor">
+    		<aop:pointcut id="latency4jMonitoringPointcut"
+        		expression="execution(* latency4jexamples.aop.helloworld.HelloWorldService.*(..))"/>  
+        	<aop:around pointcut-ref="latency4jMonitoringPointcut" method="monitor"/>	
+      	</aop:aspect>
+	</aop:config>		
+</beans>
