@@ -1,0 +1,27 @@
+<latency4j 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:noNamespaceSchemaLocation="latency4j.xsd">
+	<alertHandlers>
+		<alertHandler 
+			alertHandlerId="alertLogger" 
+			className="org.latency4j.alert.MissedTargetAlertLogger">
+			<parameters>
+				<entry>
+					<key>logLevel</key>
+					<value>INFO</value>
+				</entry>
+				<entry>
+					<key>logger.category</key>
+					<value>Epsilon-AOP-Sample-Logger</value>
+				</entry>
+			</parameters>			
+		</alertHandler>
+	</alertHandlers>
+	
+	<latencyRequirements>	
+		<cappedRequirement 			
+			workCategory="HelloWorld"
+			expectedLatency="80">			
+			<alertHandlerId>alertLogger</alertHandlerId>			
+		</cappedRequirement>	
+	</latencyRequirements>
+</latency4j>
