@@ -1,0 +1,30 @@
+apply plugin: 'java'
+
+repositories {
+	mavenCentral()
+}
+
+configurations {
+    compile {
+        description = 'compile classpath'
+    }
+    runtime {
+        extendsFrom compile
+    }    
+    provided
+}
+
+sourceSets {
+    main { compileClasspath += configurations.provided }
+}
+
+
+dependencies {
+	compile group: 'com.github.latency4j', name: 'latency4j', version: '1.0-SNAPSHOT'
+	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
+	compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.21'
+	
+	compile group: 'org.springframework', name: 'spring-context', version: '4.2.5.RELEASE'	
+	compile group: 'org.springframework', name: 'spring-beans', version: '4.2.5.RELEASE'
+	compile group: 'org.springframework', name: 'spring-core', version: '4.2.5.RELEASE'
+}
