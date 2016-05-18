@@ -1,0 +1,29 @@
+<latency4j 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:noNamespaceSchemaLocation="latency4j.xsd">	
+	<alertHandlers>
+	
+		<alertHandler 
+			alertHandlerId="alertLogger" 
+			className="org.latency4j.alert.MissedTargetAlertLogger">
+			<parameters>
+				<entry>
+					<key>logLevel</key>
+					<value>INFO</value>
+				</entry>
+				<entry>
+					<key>logger.category</key>
+					<value>{Stats Example With Log Alerts}</value>
+				</entry>
+			</parameters>
+		</alertHandler>
+	</alertHandlers>
+	
+	<latencyRequirements>
+		<statisticalRequirement 			
+			workCategory="statsExampleTask" ignoreErrors="false"
+			observationsSignificanceBarrier="5"
+			toleranceLevel="0.1">			
+			<alertHandlerId>alertLogger</alertHandlerId>
+		</statisticalRequirement>		
+	</latencyRequirements>
+</latency4j>
