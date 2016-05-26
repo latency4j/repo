@@ -85,7 +85,7 @@ public interface StandardHandlerConstants {
 	 * </p>
 	 */
 	String DEFAULT_TOLERANCE_EXCEEDED_MESSAGE = THREAD_ID_TOKEN + ": WorkCategory  '" + WORK_CATEGORY_TOKEN
-			+ "' exceeded allowed tolerance " + TOLERANCE_LEVEL_TOKEN + "%. \n\t\tMean " + MEAN_TOKEN
+			+ "' exceeded the allowed tolerance of " + TOLERANCE_LEVEL_TOKEN + "%. \n\t\tMean " + MEAN_TOKEN
 			+ ", task deviation " + DEVIATION_TOKEN + ", actual duration " + DURATION_TOKEN + ".";
 
 	/**
