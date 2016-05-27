@@ -11,7 +11,7 @@
 				</entry>
 				<entry>
 					<key>logger.category</key>
-					<value>Epsilon-AOP-Sample-Logger</value>
+					<value>Latency4J-AOP-Sample-Logger</value>
 				</entry>
 			</parameters>			
 		</alertHandler>
