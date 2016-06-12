@@ -44,6 +44,9 @@ githubPages {
   }
 }
 
+signing {
+    sign configurations.archives
+}
 
 uploadArchives {
 	repositories {
