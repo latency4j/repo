@@ -1,4 +1,6 @@
 before_script: cd core
+before_install:
+ - chmod +x gradlew
 language: java
 jdk:
 - oraclejdk7
