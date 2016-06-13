@@ -3,10 +3,10 @@
 # NOTE: Travis-CI can only publish SNAPSHOT versions. 
 
 if [ "$TRAVIS_REPO_SLUG" == "latency4j/repo" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
-  if [[ $(gradle -q getVersion) != *SNAPSHOT* ]]; then
-      echo 'Travis can only publish snapshots.'
+#  if [[ $(gradle -q getVersion) != *SNAPSHOT* ]]; then
+#      echo 'Travis can only publish snapshots.'
 #      return 0
-  fi
+#  fi
 
   echo -e "Starting publish to Sonatype...\n"
 
