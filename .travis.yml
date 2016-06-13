@@ -11,6 +11,6 @@ env:
   - secure: ZsD29XZu13WiCnaIOZ/uPqpVBnV+kl/SrgXePFMxm8+PkbMgj4fZ3YKaBo1Xeoy6qqr9OdlczdzBd+hY53ZiI2s8/7WRXZghOyjqp8RSqbLK95Rw3scrrHLQS4JLZObzNR3hRWyz46aGp+FoSgCfNU5E3oSQlX+eeCc4DIK1y81zU90K9sLcOjqxzlX43T2v2/k5bfuOUrFGWP8yL+ToZrl6u1FQyh4QoexD2YbvqFJ78VQVvPyONYDQbs059+K6WgExptdHgQbP129H9oio6pAvQUuxf+QmNwNWVmO6C1paAs/x5Tl24USG6HCCqghH3bYzmhx5PICjueWyzM1XKxKLbfmh7looHWn65CxGzq/RwxdVJ19drFNgDFZ2tKLHVIE+hTy4vyYY2yOr5HMwNMp/4uaV1ArP1KS3/EPel6oeVQ/sWMepMwj5uyZthjsLZX03JsEsdnSVk2NEsOZq5/HEx9yUudKjAvK9ZDKDi8v74QK9aOIOTdLcn737y0XI/aQUaZeS2GqE5Vfxq4BnTDC7ol72R3YzG1KNF74EefZUzD7OxQgDweRd81lY7DxE8F65ifLjJwQYeEdWNM05AgNARwB5u88g4fhVdu42flOCX++jl6BxGQ4r6fO/DZOUSzo4T6obalQBYn3iBQi8Nt573MV8dj8lplNzcWFBNEA=
 before_install: 
      - chmod +x core/.utility/initiate-publish.sh
-     - chmod +x gradlew
+     - chmod +x core/gradlew
 after_success:
      - .utility/initiate-publish.sh
