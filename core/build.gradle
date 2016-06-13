@@ -59,9 +59,9 @@ uploadArchives {
 			snapshotRepository(url: 'https://oss.sonatype.org/content/repositories/snapshots') {
                 		authentication(userName: nexusUsername, password: nexusPassword);
             		}  			
-		pom.version = projectVersion
-        	pom.artifactId = rootProject.name
-        	pom.groupId = projectGroup            
+			pom.version = projectVersion
+        		pom.artifactId = rootProject.name
+        		pom.groupId = projectGroup            
 		}
 	}
 }
