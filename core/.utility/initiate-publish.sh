@@ -5,18 +5,15 @@
 if [ "$TRAVIS_REPO_SLUG" == "latency4j/repo" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
   if [[ $(gradle -q getProjectVersion) != *SNAPSHOT* ]]; then
       echo 'Travis can only publish snapshots.'
-#      return 0
-  fi
+  else 
+    echo -e "Starting publish to Sonatype...\n"
+    gradle uploadArchives -PnexusUsername="${SONATYPE_USERNAME}" -PnexusPassword="${SONATYPE_PASSWORD}"
+    RETVAL=$?
 
-  echo -e "Starting publish to Sonatype...\n"
-
-  gradle uploadArchives -PnexusUsername="${SONATYPE_USERNAME}" -PnexusPassword="${SONATYPE_PASSWORD}"
-  RETVAL=$?
-
-  if [ $RETVAL -eq 0 ]; then
-    echo 'Completed publish!'
-  else
-    echo 'Publish failed.'
-#    return 1
+    if [ $RETVAL -eq 0 ]; then
+      echo 'Completed publish!'
+    else
+      echo 'Publish failed.'
+    fi
   fi
 fi
