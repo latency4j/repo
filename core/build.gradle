@@ -6,6 +6,11 @@ plugins {
 apply plugin: 'java'
 apply plugin: 'signing'
 apply plugin: 'maven'
+apply plugin: 'maven-publish'
+
+['java', 'maven-publish'].each {
+    apply plugin : it
+}
 
 group=projectGroup
 version=projectVersion
@@ -17,6 +22,9 @@ repositories {
 }
 
 configurations {
+    
+    pom
+    
     compile {
         description = 'compile classpath'
         transitive = false
@@ -44,22 +52,71 @@ githubPages {
   }
 }
 
+	
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
 signing {
     sign configurations.archives
 }
 
+task signPom(type: Sign) {
+    sign configurations.pom
+}
+
 uploadArchives {
 	repositories {
-		mavenDeployer {		
+		mavenDeployer {	
+			beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }	
 			repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2") {
 				authentication(userName: nexusUsername, password: nexusPassword);
 			}
 			snapshotRepository(url: 'https://oss.sonatype.org/content/repositories/snapshots') {
                 authentication(userName: nexusUsername, password: nexusPassword);
-            }  			
-			pom.version = projectVersion
+            }  
+         	
+         	pom.version = projectVersion
         	pom.artifactId = rootProject.name
         	pom.groupId = projectGroup            
+         	
+            pom.withXml {
+                asNode().children().last() + {
+                    resolveStrategy = Closure.DELEGATE_FIRST
+                    name 'Latency4J'
+                    description 'Java Latency Monitoring Tool'
+                    url 'https://github.com/latency4j/repo'
+                    scm {
+                        url 'https://github.com/latency4j/repo.git'
+                        connection 'scm:git:git://github.com/latency4j/repo.git'
+                    }
+                    licenses {
+                        license {
+                            name 'The Apache Software License, Version 2.0'
+                            url 'http://www.apache.org/license/LICENSE-2.0.txt'
+                            distribution 'https://oss.sonatype.org'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id 'thecodeqquest'
+                            name 'TheCodeQuest'
+                            email 'thecodequest@gmail.com'
+                        }
+                    }
+                }
+            }         	   
 		}
 	}
 }
