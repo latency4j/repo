@@ -149,3 +149,7 @@ task zip(type: Zip) {
         from configurations.testRuntime
     }
 }
+
+task getProjectVersion() {
+	println project.version
+}
