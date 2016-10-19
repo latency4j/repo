@@ -23,7 +23,7 @@ sourceSets {
 
 
 dependencies {
-	compile group: 'com.github.latency4j', name: 'latency4j', version: '1.0-SNAPSHOT'
+	compile group: 'com.github.latency4j', name: 'latency4j', version: '1.0'
 	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
 	compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.21'
 	
